@@ -6,10 +6,8 @@ const server = require('fastify')({ logger: true });
 
 // Declare a route
 server.get('/', async (request, reply) => {
-  console.log('123');
-
-  const min = 1;
-  const max = 1000;
+  const min = process.env.MIN_NUMBER;
+  const max = process.env.MAX_NUMBER;
 
   reply.send({ number: Math.floor(Math.random() * (max - min + 1)) + min });
 });
